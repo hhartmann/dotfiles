@@ -1,2 +1,2 @@
 # dotfiles
-Basic configuration
+A bunch of settings for a basic configuration @ macOS.
