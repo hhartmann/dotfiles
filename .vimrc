@@ -74,3 +74,36 @@ nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 let macvim_skip_colorscheme=1
 colorscheme happy_hacking
 
+" Statusbar powered by lightline
+let g:lightline = {
+                \ 'active': {
+                \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+                \ },
+                \ 'component_function': {
+                \   'fugitive': 'LightlineFugitive',
+                \   'filename': 'LightlineFilename'
+                \ }
+                \ }
+        function! LightlineModified()
+                return &ft =~# 'help\|vimfiler' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+        endfunction
+        function! LightlineReadonly()
+                return &ft !~? 'help\|vimfiler' && &readonly ? 'RO' : ''
+        endfunction
+        function! LightlineFilename()
+                return (LightlineReadonly() !=# '' ? LightlineReadonly() . ' ' : '') .
+                \ (&ft ==# 'vimfiler' ? vimfiler#get_status_string() :
+                \  &ft ==# 'unite' ? unite#get_status_string() :
+                \  &ft ==# 'vimshell' ? vimshell#get_status_string() :
+                \ expand('%:t') !=# '' ? expand('%:t') : '[No Name]') .
+                \ (LightlineModified() !=# '' ? ' ' . LightlineModified() : '')
+        endfunction
+        function! LightlineFugitive()
+                if &ft !~? 'vimfiler' && exists('*FugitiveHead')
+                        return FugitiveHead()
+                endif
+                return ''
+        endfunction
+
+set noshowmode
+
