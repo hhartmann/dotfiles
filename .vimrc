@@ -10,6 +10,10 @@ inoremap jk <ESC>
 " like <leader>w saves the current file
 let mapleader = ","
 
+" Quick change buffer
+nnoremap <Leader>b :ls<CR>:b<Space>
+
+filetype plugin on
 set encoding=utf-8
 set wrap
 set laststatus=2
@@ -22,7 +26,6 @@ set relativenumber
 set hlsearch
 set tabstop=2
 set autoindent
-filetype plugin on
 
 " In many terminal emulators the mouse works just fine.  By enabling it you
 " can position the cursor, Visually select and scroll with the mouse.
@@ -118,5 +121,33 @@ let wiki_1.ext = '.md'
 "let wiki_2.ext = '.md'
 
 let g:vimwiki_list = [wiki_1]
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+"let g:vimwiki_folding='expr'
+
+au FileType vimwiki set filetype=vimwiki.markdown
+
+" Pandoc Syntax
+augroup pandoc_syntax
+        au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
+
+" Pandoc
+let g:pandoc#syntax#conceal#use = 1
+let g:pandoc#syntax#conceal#urls = 1
+let g:pandoc#folding#fold_yaml = 1
+let g:pandoc#folding#fold_fenced_codeblocks = 1
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+let g:pandoc#filetypes#pandoc_markdown = 0
+let g:pandoc#folding#mode = ["syntax"]
+let g:pandoc#modules#enabled = ["formatting", "folding", "toc"]
+let g:pandoc#formatting#mode = "h"
+let g:pandoc#syntax#conceal#use = 2
+let g:pandoc#syntax#codeblocks#embeds#langs = ['python', 'vim', 'make',
+            \  'bash=sh', 'html', 'css', 'scss', 'javascript']
+let maplocalleader = "."
+
+" emmet-vim html editing
+let g:user_emmet_leader_key=','
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
