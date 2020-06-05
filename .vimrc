@@ -122,13 +122,7 @@ let wiki_2.ext = '.wiki'
 
 let g:vimwiki_list = [wiki_1, wiki_2]
 let g:vimwiki_ext2syntax = {'.wiki': 'default'}
-
-"au FileType vimwiki set filetype=vimwiki.markdown
-
-" Pandoc Syntax
-augroup pandoc_syntax
-        au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
-augroup END
+let g:vimwiki_folding = 'expr'
 
 " Pandoc
 let g:pandoc#syntax#conceal#use = 1
@@ -143,7 +137,7 @@ let g:pandoc#formatting#mode = "h"
 let g:pandoc#syntax#conceal#use = 2
 let g:pandoc#syntax#codeblocks#embeds#langs = ['python', 'vim', 'make',
             \  'bash=sh', 'html', 'css', 'scss', 'javascript']
-let maplocalleader = "."
+let maplocalleader = ";"
 
 " emmet-vim html editing
 let g:user_emmet_leader_key=','
