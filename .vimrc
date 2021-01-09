@@ -10,10 +10,6 @@ inoremap jk <ESC>
 " like <leader>w saves the current file
 let mapleader = ","
 
-" Quick change buffer
-nnoremap <Leader>b :ls<CR>:b<Space>
-
-filetype plugin on
 set encoding=utf-8
 set wrap
 set laststatus=2
@@ -22,8 +18,6 @@ set visualbell
 set background=dark
 set wildignore+=.pyc,.swp
 set number
-set relativenumber
-set hlsearch
 set tabstop=2
 set autoindent
 
@@ -32,25 +26,45 @@ set autoindent
 " Only xterm can grab the mouse events when using the shift key, for other
 " terminals use ":", select text and press Esc.
 if has('mouse')
-  if &term =~ 'xterm'
-    set mouse=a
-  else
-    set mouse=nvi
-  endif
+	if &term =~ 'xterm'
+		set mouse=a
+	else
+		set mouse=nvi
+	endif
 endif
+
+" plugin manager vim-plug
+call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug '/usr/local/opt/fzf'
+"Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree' |
+	\ Plug 'Xuyuanp/nerdtree-git-plugin' |
+	\ Plug 'ryanoasis/vim-devicons' " Icons for NERDTree
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-surround'
+Plug 'https://gitlab.com/yorickpeterse/happy_hacking.vim.git'
+Plug 'scrooloose/nerdcommenter'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-fugitive' " Git Wrapper
+"Plug 'wesQ3/vim-windowswap' " Window swapper
+Plug 'terryma/vim-smooth-scroll'
+call plug#end()
 
 " Switch syntax highlighting on when the terminal has colors or when using the
 " GUI (which always has colors).
 if &t_Co > 2 || has("gui_running")
-  " Revert with ":syntax off".
-  syntax on
+"Revert with ":syntax off".
+	syntax on
 endif
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 " Avoid side effects when it was already reset.
 if &compatible
-  set nocompatible
+	set nocompatible
 endif
 
 " Allow backspacing over everything in insert mode.
@@ -73,74 +87,18 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap <Leader>f :NERDTreeToggle<Enter>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 
-let macvim_skip_colorscheme=1
-colorscheme happy_hacking
-
-" Statusbar powered by lightline
-let g:lightline = {
-                \ 'active': {
-                \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-                \ },
-                \ 'component_function': {
-                \   'fugitive': 'LightlineFugitive',
-                \   'filename': 'LightlineFilename'
-                \ }
-                \ }
-        function! LightlineModified()
-                return &ft =~# 'help\|vimfiler' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-        endfunction
-        function! LightlineReadonly()
-                return &ft !~? 'help\|vimfiler' && &readonly ? 'RO' : ''
-        endfunction
-        function! LightlineFilename()
-                return (LightlineReadonly() !=# '' ? LightlineReadonly() . ' ' : '') .
-                \ (&ft ==# 'vimfiler' ? vimfiler#get_status_string() :
-                \  &ft ==# 'unite' ? unite#get_status_string() :
-                \  &ft ==# 'vimshell' ? vimshell#get_status_string() :
-                \ expand('%:t') !=# '' ? expand('%:t') : '[No Name]') .
-                \ (LightlineModified() !=# '' ? ' ' . LightlineModified() : '')
-        endfunction
-        function! LightlineFugitive()
-                if &ft !~? 'vimfiler' && exists('*FugitiveHead')
-                        return FugitiveHead()
-                endif
-                return ''
-        endfunction
-
+color happy_hacking
+let g:airline_theme='powerlineish'
+let g:airline#extensions#whitespace#enabled = 0
 set noshowmode
 
-" Vimwiki
-let wiki_1 = {}
-let wiki_1.path = '~/vimwiki/'
-let wiki_1.syntax = 'default'
-let wiki_1.ext = '.wiki'
+" Syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-let wiki_2 = {}
-let wiki_2.path = '~/privatewiki/'
-let wiki_2.syntax = 'default'
-let wiki_2.ext = '.wiki'
-
-let g:vimwiki_list = [wiki_1, wiki_2]
-let g:vimwiki_ext2syntax = {'.wiki': 'default'}
-let g:vimwiki_folding = 'expr'
-
-" Pandoc
-let g:pandoc#syntax#conceal#use = 1
-let g:pandoc#syntax#conceal#urls = 1
-let g:pandoc#folding#fold_yaml = 1
-let g:pandoc#folding#fold_fenced_codeblocks = 1
-let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
-let g:pandoc#filetypes#pandoc_markdown = 0
-let g:pandoc#folding#mode = ["syntax"]
-let g:pandoc#modules#enabled = ["formatting", "folding", "toc"]
-let g:pandoc#formatting#mode = "h"
-let g:pandoc#syntax#conceal#use = 2
-let g:pandoc#syntax#codeblocks#embeds#langs = ['python', 'vim', 'make',
-            \  'bash=sh', 'html', 'css', 'scss', 'javascript']
-let maplocalleader = ";"
-
-" emmet-vim html editing
-let g:user_emmet_leader_key=','
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
