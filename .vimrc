@@ -51,6 +51,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive' " Git Wrapper
 "Plug 'wesQ3/vim-windowswap' " Window swapper
 Plug 'terryma/vim-smooth-scroll'
+Plugin 'mattn/emmet-vim'
 call plug#end()
 
 " Switch syntax highlighting on when the terminal has colors or when using the
