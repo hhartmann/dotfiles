@@ -1,3 +1,10 @@
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+" Avoid side effects when it was already reset.
+if &compatible
+	set nocompatible
+endif
+
 " Adjusting HJKL to diamond keys | on laptop substituted with karabiner rule change fn +
 " diamond keys otherwise on UHK via mod + diamond keys
 "noremap ; l
@@ -11,6 +18,16 @@ inoremap jk <ESC>
 " like <leader>w saves the current file
 let mapleader = ","
 
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap gdj :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
+
+" General settings
 set encoding=utf-8
 set wrap
 set laststatus=2
@@ -21,6 +38,7 @@ set wildignore+=.pyc,.swp
 set number
 set tabstop=2
 set autoindent
+
 
 " In many terminal emulators the mouse works just fine.  By enabling it you
 " can position the cursor, Visually select and scroll with the mouse.
