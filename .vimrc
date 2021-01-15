@@ -97,6 +97,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap <Leader>f :NERDTreeToggle<Enter>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 
+" Look n feel
 color happy_hacking
 let g:airline_theme='powerlineish'
 let g:airline#extensions#whitespace#enabled = 0
