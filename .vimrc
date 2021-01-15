@@ -1,8 +1,9 @@
-" adjusting movement
-noremap ; l
-noremap l k
-noremap k j
-noremap j h
+" Adjusting HJKL to diamond keys | on laptop substituted with karabiner rule change fn +
+" diamond keys otherwise on UHK via mod + diamond keys
+"noremap ; l
+"noremap l k
+"noremap k j
+"noremap j h
 
 inoremap jk <ESC>
 
@@ -39,8 +40,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug '/usr/local/opt/fzf'
 "Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree' |
-	\ Plug 'Xuyuanp/nerdtree-git-plugin' |
-	\ Plug 'ryanoasis/vim-devicons' " Icons for NERDTree
+	\ Plug 'Xuyuanp/nerdtree-git-plugin' "|
+"	\ Plug 'ryanoasis/vim-devicons' " Icons for NERDTree
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Plug 'scrooloose/syntastic'
@@ -49,9 +50,10 @@ Plug 'https://gitlab.com/yorickpeterse/happy_hacking.vim.git'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive' " Git Wrapper
+Plug 'sodapopcan/vim-twiggy'
+Plug 'airblade/vim-gitgutter'
 "Plug 'wesQ3/vim-windowswap' " Window swapper
 Plug 'terryma/vim-smooth-scroll'
-Plugin 'mattn/emmet-vim'
 call plug#end()
 
 " Switch syntax highlighting on when the terminal has colors or when using the
