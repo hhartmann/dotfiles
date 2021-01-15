@@ -18,10 +18,6 @@ inoremap jk <ESC>
 " like <leader>w saves the current file
 let mapleader = ","
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-
 " Fugitive Conflict Resolution
 nnoremap <leader>gd :Gvdiff<CR>
 nnoremap gdj :diffget //2<CR>
