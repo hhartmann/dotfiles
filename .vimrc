@@ -77,13 +77,6 @@ if &t_Co > 2 || has("gui_running")
 	syntax on
 endif
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-" Avoid side effects when it was already reset.
-if &compatible
-	set nocompatible
-endif
-
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
 
