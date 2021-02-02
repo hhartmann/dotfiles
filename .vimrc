@@ -48,6 +48,9 @@ if has('mouse')
 	endif
 endif
 
+" fuzzy finder
+set rtp+=/usr/local/opt/fzf
+
 " plugin manager vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
