@@ -55,7 +55,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree' |
 	\ Plug 'Xuyuanp/nerdtree-git-plugin' "|
-"	\ Plug 'ryanoasis/vim-devicons' " Icons for NERDTree
+	\ Plug 'ryanoasis/vim-devicons' " Icons for NERDTree
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Plug 'scrooloose/syntastic'
@@ -84,10 +84,9 @@ set backspace=indent,eol,start
 set display=truncate
 
 " Fileviewer
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap <Leader>f :NERDTreeToggle<Enter>
-nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 
 " Look n feel
 color happy_hacking
