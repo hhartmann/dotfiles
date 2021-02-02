@@ -80,6 +80,30 @@ COMPLETION_WAITING_DOTS="true"
 # see 'man strftime' for details.
 HIST_STAMPS="mm/dd/yyyy"
 
+# Configuration FZF 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS="
+--layout=reverse
+--info=inline
+--height=60%
+--multi
+--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--bind '?:toggle-preview'
+--prompt='∼ ' --pointer='▶' --marker='✓'
+"
+# fzf's command
+export FZF_DEFAULT_COMMAND="fd"
+
+#CTRL-T's command
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+#ALT-C's command
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+
+# User configuration
+
+
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -88,7 +112,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git fzf zsh-autosuggestions zsh-syntax-highlighting)
 
 ZSH_DISABLE_COMPFIX="true"
 
@@ -121,6 +145,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin/:$PATH"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+export Path="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
