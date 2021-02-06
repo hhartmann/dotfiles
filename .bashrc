@@ -1,9 +1,13 @@
 # Path to your oh-my-bash installation.
-export OSH=/Users/Holger/.oh-my-bash
+export OSH=/Users/holger.hartmann/.oh-my-bash
 
-export WORKON_HOME=~/Envs
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+export PATH=/Library/Frameworks/Python.framework/Versions/3.5/bin/:$PATH
+source /usr/local/bin/virtualenvwrapper.sh
 
-set -o vi
+#vi edting mode in command line
+#set -o vi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
@@ -32,7 +36,7 @@ OSH_THEME="powerline"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -42,7 +46,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="mm/dd/yyyy"
+# HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $OSH/custom?
 # OSH_CUSTOM=/path/to/new-custom-folder
@@ -53,7 +57,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Add wisely, as too many completions slow down shell startup.
 completions=(
   git
-  fzf
+  composer
   ssh
 )
 
@@ -71,7 +75,8 @@ aliases=(
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  fzf
+  bashmarks
+	progress
 )
 
 source $OSH/oh-my-bash.sh
@@ -83,33 +88,31 @@ source $OSH/oh-my-bash.sh
 export LANG=de_DE.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='vim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+ export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-bash libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-bash
 # users are encouraged to define aliases within the OSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # Example aliases
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
-source /usr/local/bin/virtualenvwrapper.sh
-
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-alias ls='ls -G'
-alias ll='ls -lG'
 alias nano="/usr/local/bin/nano"
-alias mc='. /usr/local/Cellar/midnight-commander/4.8.24/libexec/mc/mc-wrapper.sh'
+alias buu='brew update && brew upgrade'
+alias mc='. /usr/local/libexec/mc/mc-wrapper.sh'
 
+export PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin/:$PATH"
+neofetch

@@ -8,14 +8,17 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-#export PATH=“$PATH:~/Library/Python/2.7/bin“
+#export PATH=“$PATH:~/Library/Python/3.5/bin“
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/devel/
 export PATH=~/Library/Frameworks/Python.framework/Versions/3.5/bin:$PATH
 source /usr/local/bin/virtualenvwrapper.sh
 
+
+export PATH=~/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}
+
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/holgerhartmann/.oh-my-zsh"
+export ZSH="/Users/holger.hartmann/.oh-my-zsh"
 
 export HISTSIZE=32768;
 export HISTFILESIZE=$HISTSIZE;
@@ -101,9 +104,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 #ALT-C's command
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
-# User configuration
-
-
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -112,7 +112,7 @@ export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git fzf zsh-autosuggestions zsh-interactive-cd zsh-syntax-highlighting)
 
 ZSH_DISABLE_COMPFIX="true"
 
@@ -126,11 +126,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -143,7 +143,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias -g Z='| fzf' 
 
 export PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin/:$PATH"
-export Path="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

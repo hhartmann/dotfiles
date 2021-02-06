@@ -1,17 +1,5 @@
-#!/bin/bash
-# This file runs once at login.
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
 
-# Bash
-PS1="\u \w * "
-
-# Add all local binary paths to the system path.
-export PATH="$PATH:$HOME/.local/bin"
-
-# Default programs to run.
-export EDITOR="vim"
-
-# If bash is the login shell, the source ~/.bashrc
-if [ -r ~/.bashrc ] ; then
-   source ~/.bashrc
-fi
-
+alias borg=~/bin/borg/borg-macosx64
