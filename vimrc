@@ -71,6 +71,9 @@ set relativenumber
 set tabstop=2
 set autoindent
 set updatetime=100
+set ignorecase
+set smartcase
+set incsearch
 
 " NERDCommenter
 filetype plugin on
