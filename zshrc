@@ -6,7 +6,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+. /usr/local/etc/profile.d/z.sh
 
 #export PATH=“$PATH:~/Library/Python/3.5/bin“
 export WORKON_HOME=$HOME/.virtualenvs

@@ -74,6 +74,9 @@ set updatetime=100
 set ignorecase
 set smartcase
 set incsearch
+set cmdheight=2
+set hlsearch
+set confirm
 
 " NERDCommenter
 filetype plugin on
