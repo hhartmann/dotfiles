@@ -143,7 +143,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias -g Z='| fzf' 
-
+alias ip="curl icanhazip.com"
 export PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin/:$PATH"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
