@@ -112,10 +112,8 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'https://gitlab.com/yorickpeterse/happy_hacking.vim.git'
-Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive' " Git Wrapper
@@ -123,11 +121,14 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'junegunn/gv.vim' " Git commit browser
 Plug 'sodapopcan/vim-twiggy'
 Plug 'airblade/vim-gitgutter'
-"Plug 'wesQ3/vim-windowswap' " Window swapper
 Plug 'axvr/org.vim'
 Plug 'preservim/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin' 
 Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/vim-peekaboo'
+" Plug 'scrooloose/syntastic'
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
 " Plug 'haya14busa/incsearch.vim'
 " Plug 'haya14busa/incsearch-easymotion.vim'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -163,7 +164,6 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 
 " Look n feel
 color happy_hacking
-" autocmd vimenter * ++nested colorscheme gruvbox
 set cursorline
 set cursorlineopt=number
 autocmd ColorScheme * highlight CursorLineNr cterm=bold term=bold gui=bold
