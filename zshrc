@@ -7,7 +7,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-. /usr/local/etc/profile.d/z.sh
+#/usr/local/etc/profile.d/z.sh
 
 #export PATH=“$PATH:~/Library/Python/3.5/bin“
 export WORKON_HOME=$HOME/.virtualenvs
@@ -19,7 +19,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 export PATH=~/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/holger.hartmann/.oh-my-zsh"
+export ZSH="/Users/Holger/.oh-my-zsh"
 
 export HISTSIZE=32768;
 export HISTFILESIZE=$HISTSIZE;
@@ -146,6 +146,6 @@ alias -g Z='| fzf'
 alias ip="curl icanhazip.com"
 export PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin/:$PATH"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
