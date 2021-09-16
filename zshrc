@@ -111,7 +111,7 @@ export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf zsh-autosuggestions zsh-interactive-cd zsh-syntax-highlighting)
+plugins=(git fzf zsh-autosuggestions zsh-interactive-cd zsh-syntax-highlighting vi-mode)
 
 ZSH_DISABLE_COMPFIX="true"
 
