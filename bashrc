@@ -4,7 +4,7 @@ export OSH=/Users/holger.hartmann/.oh-my-bash
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 export PATH=/Library/Frameworks/Python.framework/Versions/3.5/bin/:$PATH
-source /usr/local/bin/virtualenvwrapper.sh
+[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 
 #vi edting mode in command line
 #set -o vi
@@ -76,7 +76,7 @@ aliases=(
 plugins=(
   git
   bashmarks
-	progress
+  progress
 )
 
 source $OSH/oh-my-bash.sh
@@ -88,17 +88,13 @@ source $OSH/oh-my-bash.sh
 export LANG=de_DE.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='vim'
- fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
- export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-bash libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-bash
