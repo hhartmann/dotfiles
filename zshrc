@@ -13,7 +13,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/devel/
 export PATH=~/Library/Frameworks/Python.framework/Versions/3.5/bin:$PATH
-source /usr/local/bin/virtualenvwrapper.sh
+[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 
 
 export PATH=~/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}
@@ -125,11 +125,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -145,7 +141,7 @@ fi
 alias -g Z='| fzf' 
 alias ip="curl icanhazip.com"
 export PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin/:$PATH"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 #eval $(thefuck --alias)
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

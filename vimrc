@@ -3,7 +3,7 @@
 " This must be first, because it changes other options as a side effect.
 " Avoid side effects when it was already reset.
 if &compatible
-,set nocompatible
+  set nocompatible
 endif
 
 " Adjusting HJKL to diamond keys | on laptop substituted with karabiner rule change fn +
@@ -54,7 +54,7 @@ nnoremap <Leader>e :Files<CR>
 nnoremap <Leader>h :History<CR>
 
 " Fugitive Conflict Resolution
-nnoremap <leader>gd :Gvdiff<CR>
+nnoremap <leader>gd :Gvdiffsplit<CR>
 nnoremap gdj :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
 
@@ -180,16 +180,16 @@ set ttimeoutlen=100	" wait up to 100ms after Esc for special key
 set termguicolors
 set t_ut=
 
-" Syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pylint']
+" Syntastic config (plugin commented out – re-enable Plug 'scrooloose/syntastic' first)
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_python_checkers = ['pylint']
 
 " Startify
 let g:ascii = [
