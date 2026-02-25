@@ -115,6 +115,7 @@ plugins=(git fzf zsh-autosuggestions zsh-interactive-cd zsh-syntax-highlighting 
 
 ZSH_DISABLE_COMPFIX="true"
 
+source /usr/local/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
